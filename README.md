@@ -27,16 +27,18 @@ The cron schedular takes the job information from you then associates the next t
 
 ## Logs example
  ```
-Thu Mar  2 07:38:55 2023 - The Scheduler has started
-Thu Mar  2 07:38:55 2023 - Job with id 1 has been added
-Thu Mar  2 07:38:55 2023 - Job with id 2 has been added
-Thu Mar  2 07:38:55 2023 - Job with id 3 has been added
-Thu Mar  2 07:38:56 2023 - Job with id 2 has been executed and took 1.000000 seconds
-Thu Mar  2 07:38:59 2023 - Job with id 3 has been executed and took 4.00000 seconds
-Thu Mar  2 07:38:59 2023 - Job with id 1 has been executed and took 4.00000 seconds
-Thu Mar  2 07:39:01 2023 - Job with id 2 has been executed and took 1.00000 seconds
-Thu Mar  2 07:39:07 2023 - Job with id 1 has been executed and took 3.00000 seconds
-Thu Mar  2 07:39:08 2023 - Job with id 3 has been executed and took 1.00000 seconds
+Thu Mar  2 10:15:07 2023 - The Scheduler has started
+Thu Mar  2 10:15:07 2023 - Job with id 1 has been added
+Thu Mar  2 10:15:07 2023 - Job with id 2 has been added
+Thu Mar  2 10:15:07 2023 - Job with id 3 has been added
+Thu Mar  2 10:15:08 2023 - Job with id 2 has been executed and took 1.935037 seconds
+Thu Mar  2 10:15:12 2023 - Job with id 3 has been executed and took 6.07016 seconds
+Thu Mar  2 10:15:12 2023 - Job with id 1 has been executed and took 6.07013 seconds
+Thu Mar  2 10:15:13 2023 - Job with id 2 has been executed and took 0.00028 seconds
+Thu Mar  2 10:15:20 2023 - Job with id 1 has been executed and took 4.08148 seconds
+Thu Mar  2 10:15:21 2023 - Job with id 3 has been executed and took 0.00018 seconds
+Thu Mar  2 10:15:24 2023 - Job with id 1 has been executed and took 1.01853 seconds
+Thu Mar  2 10:15:26 2023 - Job with id 2 has been executed and took 1.00005 seconds
  ```
  
  ## Technical decisions and Trade-offs
