@@ -20,9 +20,9 @@ bool Scheduler::addJob(int id, int interval, int frequency, function<void()> imp
 }
 
 struct elem{               // struct for the thread vector elements
-    thread t;
+    thread th;
     int id;
-    time_t time;
+    clock_t clock;
 };
 
 void Scheduler::checkJobs() {
@@ -31,17 +31,19 @@ void Scheduler::checkJobs() {
         auto current = currentJobs.top();
         currentJobs.pop();
         if(!jobs.count(current.second)) continue;            // in case this job has been deleted
-        time_t start = time(NULL);                       // save the start time of the current job in order to calculate the execution time later
-        threads.push_back({thread(jobs[current.second].func()),currentJobs.top().second,start});
+        clock_t t;                                             // save the start time of the current job in order to calculate the execution time later
+        t = clock();
+        threads.push_back({thread(jobs[current.second].func()),currentJobs.top().second,t});
         current.first = time( NULL)+jobs[current.second].getFrequency();    // add the periodic time of the job to the current system time in order to run it again later
         currentJobs.push(current);
     }
     for(int i = 0 ; i<threads.size() ; i++){               //  iterate through the running threads and join them
-        threads[i].t.join();
-        time_t start = threads[i].time;
+        threads[i].th.join();
+        clock_t t;
+        t = threads[i].clock;
         int id = threads[i].id;
-        time_t end = time(NULL);
-        double time_taken = double(end - start);
+        t = clock() - t;
+        double time_taken = ((double)t)/CLOCKS_PER_SEC;
         time_t my_time = time(NULL);
         cout<<ctime(&my_time)<<" - Job with id "<<id<<" has been executed and took "<< fixed<< time_taken << setprecision(5)<<" seconds"<<endl;
     }
